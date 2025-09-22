@@ -42,94 +42,26 @@ Open your terminal or command prompt.
 
 Navigate to the directory where the ecommerce_store.sql file is located.
 
-Execute the following command, replacing <username> with your MySQL username:
+Execute the following command, replacing <username> (root) with your MySQL username:
 
 mysql -u <username> -p < ecommerce_store.sql
 
 You will be prompted to enter your password. Once authenticated, the script will automatically create the ecommerce_store database and populate it with all the tables, relationships, and sample data.
 
-Tables
-Table Name
+| **Table Name**            | **Description**                                   | **Key Relationships**               |
+| --------------------------| ------------------------------------------------- | ----------------------------------- |
+| **users**                 | Stores customer and administrator information.    | –                                   |
+| **addresses**             | Stores user addresses for shipping and billing.   | users (One-to-Many)                 |
+| **suppliers**             | Manages information about product suppliers.      | –                                   |
+| **categories**            | Organizes products into a hierarchical structure. | Self-referencing (One-to-Many)      |
+| **products**              | Main table for all e-commerce products.           | suppliers (One-to-Many)             |
+| **product_categories**    | Links products to one or more categories.         | products, categories (Many-to-Many) |
+| **product_images**        | Stores image URLs for each product.               | products (One-to-Many)              |
+| **inventory**             | Tracks the stock quantity for each product.       | products (One-to-One)               |
+| **orders**                | Records placed by users.                          | users, addresses (One-to-Many)      |
+| **order_items**           | Details on products within an order.              | orders, products (Many-to-Many)     |
+| **payments**              | Records payment transactions for orders.          | orders (One-to-Many)                |
+| **reviews**               | Stores user reviews and ratings for products.     | products, users (Many-to-Many)      |
+| **product_price_history** | Tracks historical changes in product prices.      | products, users (One-to-Many)       |
 
-Description
-
-Key Relationships
-
-users
-
-Stores customer and administrator information.
-
--
-
-addresses
-
-Stores user addresses for shipping and billing.
-
-users (One-to-Many)
-
-suppliers
-
-Manages information about product suppliers.
-
--
-
-categories
-
-Organizes products into a hierarchical category structure.
-
-Self-referencing (One-to-Many)
-
-products
-
-Main table for all e-commerce products.
-
-suppliers (One-to-Many)
-
-product_categories
-
-Links products to one or more categories.
-
-products, categories (Many-to-Many)
-
-product_images
-
-Stores image URLs for each product.
-
-products (One-to-Many)
-
-inventory
-
-Tracks the stock quantity for each product.
-
-products (One-to-One)
-
-orders
-
-Records placed by users.
-
-users, addresses (One-to-Many)
-
-order_items
-
-Details on products within an order.
-
-orders, products (Many-to-Many)
-
-payments
-
-Records payment transactions for orders.
-
-orders (One-to-Many)
-
-reviews
-
-Stores user reviews and ratings for products.
-
-products, users (Many-to-Many)
-
-product_price_history
-
-An optional audit table to track price changes.
-
-products, users (One-to-Many)
 
