@@ -402,5 +402,4 @@ VALUES
 (7, 120.00, 110.00, NOW() - INTERVAL 20 DAY, 1),
 (2, 1500.00, 1400.00, NOW() - INTERVAL 30 DAY, 4);
 
-
-Select * from order_items;
+-- the insert values are meant for testing purposes
